@@ -6,5 +6,6 @@ namespace EmojiMe
     {
         public readonly static string OneHundred = "💯";
         public readonly static string YeeHaw = "🤠";
+        public readonly static string Mouse = "🐭";
     }
 }
