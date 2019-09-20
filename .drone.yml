@@ -14,7 +14,7 @@ steps:
   image: mcr.microsoft.com/dotnet/core/sdk:2.1
   commands:
   - ls
-  - dotnet package ./app/src/EmojiMe.sln -c -o ./build
+  - dotnet pack ./src/EmojiMe.sln -c -o ./build
   - ls ./src/EmojiMe/build
   volumes:
   - name: app
