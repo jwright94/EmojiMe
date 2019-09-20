@@ -2,7 +2,8 @@
 
 namespace EmojiMe
 {
-    public class Emoji
+    public static class Emoji
     {
+        public readonly static string OneHundred = "💯";
     }
 }
