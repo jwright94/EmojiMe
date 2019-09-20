@@ -1,0 +1,35 @@
+kind: pipeline
+name: default
+
+steps:
+- name: test
+  image: mcr.microsoft.com/dotnet/core/sdk:2.1
+  commands:
+  - dotnet test
+  volumes:
+  - name: app
+    path: /app
+- name: build
+  image: mcr.microsoft.com/dotnet/core/sdk:2.1
+  commands:
+  - ls
+  - dotnet package ./app/src/EmojijMe.sln -c -o ./build
+  - ls ./src/EmojiMe/build
+  volumes:
+  - name: app
+    path: /app
+- name: publish
+  image: mcr.microsoft.com/dotnet/core/sdk:2.1
+  commands:
+  - dotnet nuget push **/*.nupkg -k ${NUGET_API_KEY} -s https://api.nuget.org/v3/index.json
+  secrets: [ nuget_api_key ]
+  when:
+    branch:
+    - master
+  volumes:
+  - name: app
+    path: /app
+
+volumes:
+- name: app
+  temp: {}
