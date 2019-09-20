@@ -22,6 +22,9 @@ steps:
 - name: publish
   image: mcr.microsoft.com/dotnet/core/sdk:2.1
   commands:
+  - echo $${NUGET_API_KEY}
+  - echo ${NUGET_API_KEY}
+  - echo $NUGET_API_KEY
   - dotnet nuget push **/*.nupkg --api-key $${NUGET_API_KEY} --source https://api.nuget.org/v3/index.json
   environment:
     NUGET_API_KEY:
@@ -29,8 +32,6 @@ steps:
   when:
     branch:
     - master
-    event: 
-    - push
   volumes:
   - name: app
     path: /app
