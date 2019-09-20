@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>EmojiMe</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>jwright94</Authors>
+    <Company>Test Name Pls Ignore</Company>
+  </PropertyGroup>
+
+</Project>
